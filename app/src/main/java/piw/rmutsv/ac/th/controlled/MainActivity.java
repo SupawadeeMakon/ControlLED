@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,13 +13,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     public FirebaseDatabase firebaseDatabase;
-    public DatabaseReference LED;
+    public DatabaseReference LED,TEXT;
     private static final String TAG = "LEDs Control";
     public Button Switch;
     public Integer Value,Value_refer;
+    private TextView ntextview;
 
 
     @Override
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         LED.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                 Value = dataSnapshot.getValue(Integer.class);
+                Value = dataSnapshot.getValue(Integer.class);
                 Log.d(TAG, "Value is: " + Value);
                 if (Value == 1){
                     Switch.setText("LED ON");
@@ -52,13 +56,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       Switch.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               LED.setValue(Value_refer);
-           }
-       });
+        Switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LED.setValue(Value_refer);
+            }
+        });
+
+
+
+
+    firebaseDatabase =FirebaseDatabase.getInstance();
+        TEXT = firebaseDatabase.getReference();
+
+        ntextview = (TextView)findViewById(R.id.textView2);
+
+        TEXT.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map map = (Map) dataSnapshot.getValue();
+                String led = String.valueOf(map.get("led"));
+                ntextview.setText(led);
+
+                //Map map = (Map)dataSnapshot.getValue();
+                //String username = String.valueOf(map.get("username"));
+                //ntextview.setText(username);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
-
-
 }
