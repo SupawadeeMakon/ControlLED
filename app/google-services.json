@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "941436468127",
+    "firebase_url": "https://iotarduino-d2aa9.firebaseio.com",
+    "project_id": "iotarduino-d2aa9",
+    "storage_bucket": "iotarduino-d2aa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941436468127:android:cc04d1ed96f87aa2",
+        "android_client_info": {
+          "package_name": "piw.rmutsv.ac.th.controlled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941436468127-pv3k2rdfrida2n3hpdlt0u4o0pvij2nh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "piw.rmutsv.ac.th.controlled",
+            "certificate_hash": "6eb7e760357de307a64dc9cce104e2d7b426d38a"
+          }
+        },
+        {
+          "client_id": "941436468127-rv34dn56iuv952u87iim4shbkp35jojv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrzqolZc9MrCcWhgh9O79N-PQn0BGmzdI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941436468127-rv34dn56iuv952u87iim4shbkp35jojv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
