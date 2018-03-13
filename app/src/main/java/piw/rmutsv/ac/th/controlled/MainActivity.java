@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //สั่งเปิดปิดไฟด้วยSwitch  Arduino ผ่าน Android
         firebaseDatabase = FirebaseDatabase.getInstance();
         LED =firebaseDatabase.getReference("Switch");
 
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+//ดึงข้อความจาก Firebase มาแสดง
 
     firebaseDatabase =FirebaseDatabase.getInstance();
         TEXT = firebaseDatabase.getReference();
@@ -77,10 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 Map map = (Map) dataSnapshot.getValue();
                 String led = String.valueOf(map.get("led"));
                 ntextview.setText(led);
-
-                //Map map = (Map)dataSnapshot.getValue();
-                //String username = String.valueOf(map.get("username"));
-                //ntextview.setText(username);
 
             }
 
